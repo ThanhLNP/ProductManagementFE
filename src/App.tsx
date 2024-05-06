@@ -1,11 +1,19 @@
 import { ConfigProvider } from "antd";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ProtectedRoute, routes } from "routes";
 import "./index.scss";
-import routes from "./routes/routes";
 
 const App = () => {
   const renderRoute: any = (route: any, key: number) => (
-    <Route path={route.path} key={key} element={route.element}>
+    <Route
+      path={route.path}
+      key={key}
+      element={
+        <ProtectedRoute isPrivate={route.isPrivate}>
+          {route.element}
+        </ProtectedRoute>
+      }
+    >
       {route.children?.map((child: any, index: number) =>
         renderRoute(child, `${key}_${index}`)
       )}

@@ -2,7 +2,7 @@ import { HomeOutlined, ProductOutlined } from "@ant-design/icons";
 import { Layout as LibLayout, Menu, theme } from "antd";
 import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { DASHBOARD_PAGE, PRODUCT_PAGE } from "../constants";
+import { DASHBOARD_PAGE, PRODUCT_PAGE } from "constants";
 
 const { Header, Content, Footer, Sider } = LibLayout;
 
@@ -27,7 +27,7 @@ const Layout: React.FC = () => {
   ];
 
   return (
-    <LibLayout className="h-screen w-screen">
+    <LibLayout className="h-screen">
       <Sider
         collapsible
         collapsed={collapsed}
